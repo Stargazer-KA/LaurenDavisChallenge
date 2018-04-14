@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+    </head>
+    
+    <body>
+        
+        <script>
+            
+            var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            
+            var numberOfDays = 0;
+            
+            var yearWithMostAttacks = 2001;
+            var mostAttacksInAYear = 1;
+            
+            var longestGapBetweenAttacks = 0;
+            var timeSinceLastAttack = 0;
+            
+            for (var i = 2001 ; i < 2100 ; i++) {
+                var attacksPerYear = 0;
+                for (var t = 1 ; t < 13 ; t++) {
+                    for (var j = 1 ; j < daysInMonth[t-1]+1 ; j++) {
+                        var lastDigitsOfYear = i-2000;
+                        var month = t;
+                        var day = j;
+                        //console.log(month+"/"+day+"/"+lastDigitsofYear);
+                        if (month*day === lastDigitsOfYear) {
+                            console.log("Attack! "+month+"/"+day+"/"+lastDigitsOfYear);
+                            numberOfDays++;
+                            attacksPerYear++;
+                        }
+                    }
+                }
+                if (attacksPerYear > mostAttacksInAYear) {
+                    mostAttacksInAYear = attacksPerYear;
+                    yearWithMostAttacks = i;
+                }
+            }
+            
+            console.log(numberOfDays + " attacks have occured!!!");
+            console.log("Year "+yearWithMostAttacks+" had the most attacks at "+mostAttacksInAYear+" attacks!");
+            console.log("2001 had the least amount of attacks!");
+            
+            
+        </script>
+        
+    </body>
+    
+</html>
